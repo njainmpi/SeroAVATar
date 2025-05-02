@@ -13,3 +13,4 @@ source ../fMRI_analysis_pipeline/video_making.sh #19.08.2024 new function to mak
 source ../fMRI_analysis_pipeline/func_parameters_extraction.sh #07.11.2024 new function to extract parameters for fMRI analysis
 source ../fMRI_analysis_pipeline/bash_log_create.sh
 source ../fMRI_analysis_pipeline/Signal_Change_Map.sh
+source ../fMRI_analysis_pipeline/missing_run.sh
