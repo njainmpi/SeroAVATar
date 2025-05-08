@@ -23,7 +23,7 @@ do
     project_name=$(echo "$project_name" | xargs)
     
     if [[ "$project_name" == "Project_SeroAVATar_NJ_KR" ]]; then
-       export Project_Name="$project_name"
+        export Project_Name="$project_name"
         export Sub_project_Name="$sub_project_name"
         export Dataset_Name="$dataset_name"
         export structural_run="$structural_name"
@@ -69,7 +69,7 @@ do
         CHECK_FILE_EXISTENCE "$Path_Analysed_Data/$structural_run""$SequenceName"
         cd $Path_Analysed_Data/$structural_run''$SequenceName
 
-        run_if_missing "G1_cp.nii.gz" -- BRUKER_to_NIFTI "$datapath" "$structural_run" "$datapath/$structural_runs/method"
+        run_if_missing "G1_cp.nii.gz" -- BRUKER_to_NIFTI "$datapath" "$structural_run" "$datapath/$structural_run/method"
         echo "This data is acquired using $SequenceName"
 
         #conversion for functional data
@@ -97,10 +97,10 @@ do
   
         if [[ "$SequenceName" == *"functionalEPI"* ]]; then
             run_if_missing "Signal_Change_Map.nii.gz" -- \
-            SIGNAL_CHANGE_MAPS mc_func.nii.gz 100 550 "$datapath/$run_number" 5 5 mean_mc_func.nii.gz
+            SIGNAL_CHANGE_MAPS mc_func.nii.gz 50 250 "$datapath/$run_number" 5 5 mean_mc_func.nii.gz
         elif [[ "$SequenceName" == *"FLASH"* ]]; then
             run_if_missing "$datapath/$run_number/Signal_Change_Map.nii.gz" -- \
-            SIGNAL_CHANGE_MAPS mc_func.nii.gz 5 25 "$datapath/$run_number" 5 5 mean_mc_func.nii.gz
+            SIGNAL_CHANGE_MAPS mc_func.nii.gz 5 12 "$datapath/$run_number" 5 5 mean_mc_func.nii.gz
         else
             echo "Unknown sequence type: $SequenceName — skipping SIGNAL_CHANGE_MAPS."
         fi
